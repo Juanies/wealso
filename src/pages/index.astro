@@ -1,10 +1,38 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
+import Section from "../components/Section.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main>
+  <main class="mt-20 mx-44 overflow-hidden">
+    <div class="flex gap-24">
+      <div
+        class="w-[50%] rounded p-10 flex justify-center items-center bg-[#333]"
+      >
+        <p class="rounded">
+          ¡Hola! En esta web vas a encontrar apuntes sobre lenguajes y temas de
+          programación además de mi progreso
+        </p>
+      </div>
+      <div class="flex w-[50%] flex-col gap-6">
+        <a href="" title="progreso" class="text-3xl rounded p-10 bg-[#333]">
+          HTML5 <span class="text-[#FF7F00]">CHEATSHEET</span>
+        </a>
+        <a href="" title="progreso" class="rounded text-3xl p-10 bg-[#333]">
+          Sigue mi <span class="text-[#FF7F00]">PROGRESO</span>
+        </a>
+      </div>
+    </div>
+    <Section title="Entradas" />
+    <Section title="Temas" />
+    <Section title="Lenguajes" />
   </main>
 </Layout>
 
+<style>
+  .shadow {
+    box-shadow:
+      0.5em 0.5em 2em #1b1b1b,
+      inset 0 0 0 #353535;
+  }
+</style>

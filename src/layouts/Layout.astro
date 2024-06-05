@@ -24,9 +24,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <main>
-      <Header />
-    </main>
+
+
+    <Header />
+    <slot />
   </body>
 </html>
 
@@ -36,9 +37,5 @@ const { title } = Astro.props;
     font-weight: 500;
     background-color: #262626;
     color: #fff;
-  }
-
-  main {
-    padding: 3em 12em;
   }
 </style>
