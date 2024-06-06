@@ -4,17 +4,19 @@ import Section from "../components/Section.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="mt-20 overflow-hidden">
-    <div class="flex gap-24">
+  <main
+    class="section py-16 md:py-36 scroll-m-20 w-full mx-auto container lg:max-w-4xl md:max-w-2xl"
+  >
+    <div class="flex lg:flex-row flex-col lg:gap-4 gap-4">
       <div
-        class="w-[50%] rounded p-10 flex justify-center items-center bg-[#333]"
+        class="w-[100%] rounded lg:w-[100%] p-10 flex justify-center items-center bg-[#333]"
       >
         <p class="rounded">
           ¡Hola! En esta web vas a encontrar apuntes sobre lenguajes y temas de
           programación además de mi progreso
         </p>
       </div>
-      <div class="flex w-[50%] flex-col gap-6">
+      <div class="flex w-[100%] lg:w-[100%] flex-col gap-6">
         <a href="" title="progreso" class="text-3xl rounded p-10 bg-[#333]">
           HTML5 <span class="text-[#FF7F00]">CHEATSHEET</span>
         </a>
@@ -23,9 +25,10 @@ import Section from "../components/Section.astro";
         </a>
       </div>
     </div>
-    <Section category="blog" />
-
-    <Section category="tema" />
+    <div class="flex flex-col gap-2 mt-5">
+      <Section category="Blog" />
+      <Section category="Tema" />
+    </div>
   </main>
 </Layout>
 
