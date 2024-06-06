@@ -1,13 +1,47 @@
 ---
-
-interface Props{
-  title: string;
+interface Props {
+  category: string;
 }
 
+interface Post {
+  url: string;
+  frontmatter: {
+    title: string;
+    [key: string]: any; // Add other frontmatter fields if needed
+  };
+}
 
-const { title } = Astro.props;
+const { category } = Astro.props;
+let posts: Post[] = [];
+
+switch (category) {
+  case "blog":
+    posts = await Astro.glob<Post[]>("../pages/blog/post/*.md"); // Load all blog posts
+    break;
+  case "tema":
+    posts = await Astro.glob<Post[]>("../pages/tema/post/*.md"); // Load all project posts
+    break;
+  default:
+    posts = [];
+}
+
+posts = posts.slice(0, 4);
 ---
 
-<div>
-  <h2>{title}</h2>
+<div class="flex flex-col gap-6 mt-12">
+  <h2 class="text-3xl">{category}</h2>
+
+  <div class="flex gap-2">
+    {
+      posts.map(post => (
+        <a
+          href={post.url}
+          title="progreso"
+          class="text-xl  w-[100%] rounded p-10 bg-[#333]  mb-4"
+        >
+          {post.frontmatter.title}
+        </a>
+      ))
+    }
+  </div>
 </div>
