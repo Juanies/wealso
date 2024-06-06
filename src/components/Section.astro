@@ -7,7 +7,7 @@ interface Post {
   url: string;
   frontmatter: {
     title: string;
-    [key: string]: any; // Add other frontmatter fields if needed
+    [key: string]: any;
   };
 }
 
@@ -16,17 +16,16 @@ let posts: Post[] = [];
 
 switch (category) {
   case "blog":
-    posts = await Astro.glob<Post[]>("../pages/blog/post/*.md"); // Load all blog posts
+    posts = (await Astro.glob("../pages/blog/post/*.md")) as Post[];
     break;
   case "tema":
-    posts = await Astro.glob<Post[]>("../pages/tema/post/*.md"); // Load all project posts
+    posts = (await Astro.glob("../pages/tema/post/*.md")) as Post[]; 
     break;
   default:
     posts = [];
 }
 
 posts = posts.slice(0, 4);
----
 
 {
   posts.length > 0 && (
@@ -45,5 +44,6 @@ posts = posts.slice(0, 4);
         ))}
       </div>
     </div>
-  )
+  );
 }
+---
