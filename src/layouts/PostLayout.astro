@@ -1,0 +1,51 @@
+---
+import MainLayout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+const { title, description, date, category, author, image } = frontmatter;
+---
+
+<MainLayout title={title}>
+  <div class="post-content mt-12">
+    <h1 class="text-2xl">{title}</h1>
+    <div class="content mt-12">
+      <slot />
+    </div>
+  </div>
+</MainLayout>
+
+<style is:global>
+  .post-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    max-width: 50%;
+    word-wrap: break-word;
+  }
+
+  p {
+    margin: 1em 0 1em 0;
+  }
+
+  pre {
+    margin: 2em 0 2em 0;
+    padding: 2em;
+    
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+</style>
